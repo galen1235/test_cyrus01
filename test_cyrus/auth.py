@@ -13,9 +13,10 @@ class Get_auth():
             token = json.loads(r.text)["data"]["token_type"] + " " + json.loads(r.text)["data"]["token"]
             return token
         except TypeError as err:
-            message = json.loads(r.text)["message"]
-            return message
+            status = json.loads(r.text)["status"]
+            return status
 
 
-token = Get_auth()
-print(token.get_token())
+if __name__ == "__main__":
+    token = Get_auth()
+    print(token.get_token())

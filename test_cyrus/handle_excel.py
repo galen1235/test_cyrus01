@@ -112,7 +112,7 @@ def get_resultvalue():
 
 if __name__ == '__main__':
     test = HandleExcel()
-    print(test.get_data())
-    print(test.get_rows())
-    print(test.get_value(0, 0))
-    print(test.get_value(1,get_apiName()))
+    # print(test.get_data())
+    # print(test.get_rows())
+    # print(test.get_value(0, 0))
+    print(test.get_value(1,get_header()))
