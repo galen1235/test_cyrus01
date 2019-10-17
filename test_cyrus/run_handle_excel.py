@@ -17,6 +17,8 @@ class RunTestCase:
         if token ==10039:
             print('登录接口重复提交！')
         else:
+            pass_count = []
+            fail_count = []
             for i in range(1, rows_count):  # 利用行数进行迭代处理每个接口
                 api_name = self.data.get_value(i, get_apiName())
                 url = self.data.get_value(i, get_url())  # 循环获取url的值
@@ -43,9 +45,13 @@ class RunTestCase:
                 if expectvalue in res:
                     print(f'{api_name}测试通过{res}')
                     self.data.write_value(i, get_resultvalue(), 'pass')
+                    pass_count.append(i)
                 else:
                     print(f"{api_name}测试不通过{res}")
                     self.data.write_value(i, get_resultvalue(), 'fail')
+                    fail_count.append(i)
+            print("成功的用例数:",len(pass_count))
+            print("失败的用例数:",len(fail_count))
 
 
 if __name__ == '__main__':
