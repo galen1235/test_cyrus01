@@ -32,6 +32,7 @@ class RunTestCase:
                 d3.update(d2)
                 headers = json.dumps(d3)
                 headers = json.loads(headers)
+
                 expectvalue = self.data.get_value(i, get_expectvalue())
                 '''
                 is_run = self.data.get_value(i, get_priority())  # 获取是否运行，即判断excel中priority是不是"H"
